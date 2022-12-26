@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <%= render 'welcome' %>
+<% else %>
+  <%= render 'signed_out' %>
+<% end %>

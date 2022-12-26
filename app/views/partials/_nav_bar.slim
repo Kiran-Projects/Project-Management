@@ -1,0 +1,5 @@
+.p-4
+  - if user_signed_in?
+    =  button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-warning my-2 ms-auto"
+  - else
+    = link_to "Sign in", new_user_session_path, class: 'btn btn-primary'
