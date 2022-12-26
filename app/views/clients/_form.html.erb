@@ -1,0 +1,44 @@
+<%= form_with(model: client) do |form| %>
+  <% if client.errors.any? %>
+    <div class="text-danger">
+      <h3><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h3>
+
+      <ul>
+        <% client.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table table-light table-borderless">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: auto">
+    </colgroup>
+    <tr>
+      <td><%= form.label :name, class: 'form-label' %></td>
+      <td><%= form.text_field :name, placeholder: :name, class: 'form-control' %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :address, class: 'form-label' %></td>
+      <td><%= form.text_field :address, placeholder: :address, class: 'form-control' %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :contact, class: 'form-label' %></td>
+      <td><%= form.text_field :contact, placeholder: :contact, class: 'form-control' %></td>
+    </tr>
+  </table>
+
+  <div class="form-check-lg">
+    <%= form.check_box :active, class: 'form-check-input' %>
+    <%= form.label :active, class: 'form-check-label ms-2' %>
+  </div>
+
+
+  <div class="mt-4">
+    <%= form.submit class: 'btn btn-success' %>
+  </div>
+<% end %>

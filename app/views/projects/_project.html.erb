@@ -1,0 +1,42 @@
+<div id="<%= dom_id project %>">
+  <table class="table table-light table-bordered table-hover">
+    <colgroup>
+      <col style="width: 20%">
+      <col style="width: auto">
+    </colgroup>
+    <tr>
+      <td>Name:</td>
+      <td><%= project.name %></td>
+    </tr>
+
+    <tr>
+      <td>Location:</td>
+      <td><%= project.location %></td>
+    </tr>
+
+    <tr>
+      <td>Client:</td>
+      <td><%= project.client_name %></td>
+    </tr>
+
+    <tr>
+      <td>Start date:</td>
+      <td><%= project.start_date.localtime.strftime('%b %d, %Y') %></td>
+    </tr>
+
+    <tr>
+      <td>Deadline:</td>
+      <td><%= project.deadline || 'N/A' %></td>
+    </tr>
+
+    <tr>
+      <td>Status:</td>
+      <td><%= project.status %></td>
+    </tr>
+
+    <tr>
+      <td>Manager name:</td>
+      <td><%= project.manager_name || 'N/A' %></td>
+    </tr>
+  </table>
+</div>
