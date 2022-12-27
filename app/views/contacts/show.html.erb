@@ -1,0 +1,10 @@
+<p class="text-success"><%= notice %></p>
+
+<%= render @contact %>
+
+<div>
+  <%= link_to "Edit", edit_contact_path(@contact) %> |
+  <%= link_to "Contact List", contacts_path %>
+
+  <%= button_to "Delete", @contact, method: :delete %>
+</div>

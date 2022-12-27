@@ -4,16 +4,17 @@
 #
 # Table name: projects
 #
-#  id           :integer          not null, primary key
-#  deadline     :datetime
-#  location     :string           not null
-#  manager_name :string
-#  name         :string           not null
-#  start_date   :datetime         not null
-#  status       :integer          default("on_hold")
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  client_id    :integer          not null
+#  id              :integer          not null, primary key
+#  contract_amount :decimal(10, 2)   default(0.0)
+#  deadline        :datetime
+#  location        :string           not null
+#  manager_name    :string
+#  name            :string           not null
+#  start_date      :datetime         not null
+#  status          :integer          default("on_hold")
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  client_id       :integer          not null
 #
 # Indexes
 #

@@ -7,3 +7,23 @@
 </div>
 
 <%= render @client %>
+
+<div class="my-4">
+  <strong>Contacts:</strong>
+  <% if @contacts.count.zero? %>
+    <p class="text-secondary"> No any contacts.</p>
+    <%= link_to 'Add Contact', new_contact_path, class: 'btn btn-success' %>
+  <% else %>
+    <%= render 'contacts/contact_list' %>
+  <% end %>
+</div>
+
+<div class="my-4">
+  <strong>Projects:</strong>
+  <% if @projects.count.zero? %>
+    <p class="text-secondary"> No any projects.</p>
+    <%= link_to 'Add Project', new_project_path, class: 'btn btn-success' %>
+  <% else %>
+    <%= render 'projects/project_list' %>
+  <% end %>
+</div>

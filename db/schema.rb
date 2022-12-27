@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_26_162314) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_27_150021) do
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
     t.string "address"
@@ -20,6 +20,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_162314) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.string "phone"
+    t.integer "contact_type"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_contacts_on_client_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name", null: false
     t.string "location", null: false
@@ -27,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_162314) do
     t.datetime "deadline"
     t.integer "status", default: 0
     t.string "manager_name"
+    t.decimal "contract_amount", precision: 10, scale: 2, default: "0.0"
     t.integer "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

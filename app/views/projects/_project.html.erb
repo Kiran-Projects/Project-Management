@@ -16,7 +16,7 @@
 
     <tr>
       <td>Client:</td>
-      <td><%= project.client_name %></td>
+      <td><%= link_to project.client_name, project.client, class: 'text-dark'  %></td>
     </tr>
 
     <tr>
@@ -37,6 +37,11 @@
     <tr>
       <td>Manager name:</td>
       <td><%= project.manager_name || 'N/A' %></td>
+    </tr>
+
+    <tr>
+      <td>Contract Amount:</td>
+      <td>NRs. <%= project.contract_amount %></td>
     </tr>
   </table>
 </div>

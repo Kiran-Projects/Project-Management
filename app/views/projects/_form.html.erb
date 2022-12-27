@@ -25,7 +25,7 @@
 
     <tr>
       <td><%= form.label :client_id, class: "form-label" %></td>
-      <td><%= form.select :client_id, client_list, {prompt: 'Choose Client'}, {class: 'form-select'} %></td>
+      <td><%= form.select :client_id, client_list, { prompt: 'Choose Client'}, { class: 'form-select' } %></td>
     </tr>
 
     <tr>
@@ -40,12 +40,17 @@
 
     <tr>
       <td><%= form.label :status, class: 'form-label' %></td>
-      <td><%= form.select :status, project_statuses, {}, {class: 'form-select'} %></td>
+      <td><%= form.select :status, project_statuses, {}, { class: 'form-select' } %></td>
     </tr>
 
     <tr>
       <td><%= form.label :manager_name, class: 'form-label' %></td>
       <td><%= form.text_field :manager_name, class: 'form-control' %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :contract_amount, class: 'form-label' %></td>
+      <td><%= form.number_field :contract_amount, class: 'form-control' %></td>
     </tr>
   </table>
 

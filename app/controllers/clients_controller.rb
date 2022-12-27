@@ -10,7 +10,10 @@ class ClientsController < ApplicationController
   end
 
   # GET /clients/1 or /clients/1.json
-  def show; end
+  def show
+    @contacts = @client.contacts
+    @projects = @client.projects
+  end
 
   # GET /clients/new
   def new

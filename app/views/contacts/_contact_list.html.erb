@@ -1,0 +1,10 @@
+<div id="contacts" class="row my-4">
+  <% @contacts.each do |contact| %>
+    <p class="bg-light rounded p-2 my-2 me-auto col-md-5">
+      <strong><%= contact.name %></strong> - <%= contact.title %>,
+      <%= contact.client_name %> <br>
+      <%= contact.phone %><br>
+      <%= link_to "Edit", edit_contact_path(contact) %>
+    </p>
+  <% end %>
+</div>

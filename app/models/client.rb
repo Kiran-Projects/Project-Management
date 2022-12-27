@@ -13,6 +13,7 @@
 #  updated_at :datetime         not null
 #
 class Client < ApplicationRecord
+  has_many :contacts
   has_many :projects
 
   validates :name, presence: true
