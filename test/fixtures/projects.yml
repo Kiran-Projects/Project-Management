@@ -24,7 +24,7 @@
 
 one:
   name: MyString
-  address: MyString
+  location: MyString
   client: one
   start_date: 2022-12-26 22:08:14
   deadline: 2022-12-26 22:08:14
@@ -33,7 +33,7 @@ one:
 
 two:
   name: MyString
-  address: MyString
+  location: MyString
   client: two
   start_date: 2022-12-26 22:08:14
   deadline: 2022-12-26 22:08:14

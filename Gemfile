@@ -57,11 +57,12 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'annotate'
+
 # User authentication
 gem 'devise'
 
-gem 'annotate'
-gem 'pry'
-
 gem 'cssbundling-rails', '~> 1.1'
+gem 'pry'
+gem 'rspec-rails'
 gem 'slim'
