@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @work_party %>
+
+<div>
+  <%= link_to "Edit this work party", edit_work_party_path(@work_party) %> |
+  <%= link_to "Back to work parties", work_parties_path %>
+
+  <%= button_to "Destroy this work party", @work_party, method: :delete %>
+</div>

@@ -26,6 +26,8 @@
 #
 class Project < ApplicationRecord
   belongs_to :client
+  has_many :project_work_parties
+  has_many :work_parties, through: :project_work_parties
 
   enum status: { on_hold: 0, active: 1, completed: 2 }
 
