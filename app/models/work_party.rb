@@ -20,4 +20,6 @@ class WorkParty < ApplicationRecord
   belongs_to :work_type
   has_many :project_work_parties
   has_many :projects, through: :project_work_parties
+
+  delegate :name, to: :work_type, prefix: true, allow_nil: true
 end

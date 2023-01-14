@@ -2,24 +2,24 @@
 #
 # Table name: project_work_parties
 #
-#  id              :integer          not null, primary key
-#  bill_amount     :decimal(, )
-#  bill_status     :integer
-#  payment_status  :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  projects_id     :integer          not null
-#  work_parties_id :integer          not null
+#  id             :integer          not null, primary key
+#  bill_amount    :decimal(10, 2)   default(0.0), not null
+#  bill_status    :integer          default("incomplete"), not null
+#  payment_status :integer          default("unpaid"), not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  project_id     :integer          not null
+#  work_party_id  :integer          not null
 #
 # Indexes
 #
-#  index_project_work_parties_on_projects_id      (projects_id)
-#  index_project_work_parties_on_work_parties_id  (work_parties_id)
+#  index_project_work_parties_on_project_id     (project_id)
+#  index_project_work_parties_on_work_party_id  (work_party_id)
 #
 # Foreign Keys
 #
-#  projects_id      (projects_id => projects.id)
-#  work_parties_id  (work_parties_id => work_parties.id)
+#  project_id     (project_id => projects.id)
+#  work_party_id  (work_party_id => work_parties.id)
 #
 require 'rails_helper'
 

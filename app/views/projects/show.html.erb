@@ -7,3 +7,50 @@
 </div>
 
 <%= render @project %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Assign Work Party
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <%= form_for ProjectWorkParty.new do |form| %>
+      <%= form.hidden_field :project_id, value: @project.id %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-light table-borderless">
+            <tr>
+              <td><%= form.label :work_party_id, class: 'form-label' %></td>
+              <td><%= form.select :work_party_id, work_party_list, {prompt: 'Choose Work Party'}, {class: 'form-select'} %></td>
+            </tr>
+
+            <tr>
+              <td><%= form.label :bill_amount, class: 'form-label' %></td>
+              <td><%= form.number_field :bill_amount, class: 'form-control' %></td>
+            </tr>
+
+            <tr>
+              <td><%= form.label :bill_status, class: 'form-label' %></td>
+              <td><%= form.select :bill_status, bill_statuses, {}, {class: 'form-select'} %></td>
+            </tr>
+
+            <tr>
+              <td><%= form.label :payment_status, class: 'form-label' %></td>
+              <td><%= form.select :payment_status, payment_statuses, {}, {class: 'form-select'} %></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= form.submit 'Assign', class: 'btn btn-success' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

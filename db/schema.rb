@@ -32,15 +32,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_160434) do
   end
 
   create_table "project_work_parties", force: :cascade do |t|
-    t.integer "bill_status"
-    t.decimal "bill_amount"
-    t.integer "payment_status"
-    t.integer "projects_id", null: false
-    t.integer "work_parties_id", null: false
+    t.integer "bill_status", default: 0, null: false
+    t.integer "payment_status", default: 0, null: false
+    t.decimal "bill_amount", precision: 10, scale: 2, default: "0.0", null: false
+    t.integer "project_id", null: false
+    t.integer "work_party_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["projects_id"], name: "index_project_work_parties_on_projects_id"
-    t.index ["work_parties_id"], name: "index_project_work_parties_on_work_parties_id"
+    t.index ["project_id"], name: "index_project_work_parties_on_project_id"
+    t.index ["work_party_id"], name: "index_project_work_parties_on_work_party_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -83,8 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_160434) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "project_work_parties", "projects", column: "projects_id"
-  add_foreign_key "project_work_parties", "work_parties", column: "work_parties_id"
+  add_foreign_key "project_work_parties", "projects"
+  add_foreign_key "project_work_parties", "work_parties"
   add_foreign_key "projects", "clients"
   add_foreign_key "work_parties", "work_types"
 end
