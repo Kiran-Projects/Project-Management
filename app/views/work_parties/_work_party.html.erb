@@ -1,11 +1,45 @@
-<div id="<%= dom_id work_party %>" class="bg-light rounded p-2">
-  <p>
-    <strong>Name:</strong>
-    <%= work_party.name %>
-  </p>
-  <p>
-    <strong>Work Type:</strong>
-    <%= work_party.work_type.name %>
-  </p>
+<div id="<%= dom_id work_party %>">
+  <table class="table table-dark table-bordered table-hover">
+    <colgroup>
+      <col style="width: 20%">
+      <col style="width: auto">
+    </colgroup>
+    <tr>
+      <td>Name</td>
+      <td><%= work_party.name %></td>
+    </tr>
+    <tr>
+      <td>Work Type</td>
+      <td><%= work_party.work_type.name %></td>
+    </tr>
+  </table>
 
+  <h3>Projects:</h3>
+
+  <% if work_party.projects.blank? %>
+    <div class="border border-secondary rounded">
+      <p class="text-secondary text-center p-2">No any assigned projects!</p>
+    </div>
+  <% else %>
+    <table class="table table-dark table-bordered table-hover text-capitalize">
+      <thead>
+      <tr>
+        <td>Name</td>
+        <td>Bill Status</td>
+        <td>Bill Amount</td>
+        <td>Payment Status</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% work_party.project_work_parties.each do |pwp| %>
+        <tr>
+          <td><%= link_to pwp.project.name, pwp.project, class: 'text-light' %></td>
+          <td><%= pwp.bill_amount %></td>
+          <td><%= pwp.bill_status %></td>
+          <td><%= pwp.payment_status %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>

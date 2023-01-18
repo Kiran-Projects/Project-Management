@@ -6,6 +6,7 @@ class CreateProjectWorkParties < ActiveRecord::Migration[7.0]
       t.decimal :bill_amount, null: false, default: 0.0, precision: 10, scale: 2
       t.references :project, null: false, foreign_key: true
       t.references :work_party, null: false, foreign_key: true
+      t.text :remarks
 
       t.timestamps
     end

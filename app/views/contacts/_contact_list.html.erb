@@ -1,10 +1,23 @@
 <div id="contacts" class="row my-4">
   <% @contacts.each do |contact| %>
-    <p class="bg-light rounded p-2 my-2 me-auto col-md-5">
-      <strong><%= contact.name %></strong> - <%= contact.title %>,
-      <%= contact.client_name %> <br>
-      <%= contact.phone %><br>
-      <%= link_to "Edit", edit_contact_path(contact) %>
-    </p>
+    <div class="bg-success rounded ps-4 pt-2 my-2 me-auto col-md-5 d-flex">
+      <p class="col-10 text-capitalize">
+        <strong><%= contact.name %></strong><br>
+        <%= [contact.title, contact.company_name].join(', ') %><br>
+        <% contact.phone.split(',').each do |phone| %>
+          <% phone.strip! %>
+          <%= link_to phone, "tel:#{phone}", class: 'text-light me-2' %>
+        <% end %>
+      </p>
+      <div class="col-1 ms-auto">
+        <%= link_to edit_contact_path(contact), class: 'btn btn-light mb-1' do %>
+          <i class="bi bi-pen"></i>
+        <% end %>
+        <%= button_to contact, method: :delete, class: 'btn btn-danger mt-1' do %>
+          <i class="bi bi-trash-fill"></i>
+        <% end %>
+      </div>
+
+    </div>
   <% end %>
 </div>

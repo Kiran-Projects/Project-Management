@@ -1,17 +1,12 @@
 <p class="text-success"><%= notice %></p>
 
 <div class="d-flex py-2">
-  <%= link_to "↶ Back", projects_path, class: 'btn btn-secondary' %>
+  <%= link_to "↶ Back to list", projects_path, class: 'btn btn-secondary' %>
   <%= link_to "Edit", edit_project_path(@project), class: 'btn btn-primary px-4 ms-2 me-auto' %>
   <%= button_to "Delete", @project, method: :delete, class: 'btn btn-danger ms-auto' %>
 </div>
 
 <%= render @project %>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Assign Work Party
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -43,6 +38,11 @@
             <tr>
               <td><%= form.label :payment_status, class: 'form-label' %></td>
               <td><%= form.select :payment_status, payment_statuses, {}, {class: 'form-select'} %></td>
+            </tr>
+
+            <tr>
+              <td><%= form.label :remarks, class: 'form-label' %></td>
+              <td><%= form.text_area :remarks, class: 'form-control' %></td>
             </tr>
           </table>
         </div>

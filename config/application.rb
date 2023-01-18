@@ -12,6 +12,9 @@ module ProjectMgmt
     config.load_defaults 7.0
 
     config.hosts << 'bakla.loca.lt'
+    config.hosts << "test-server.ap.ngrok.io"
+    config.hosts << "test-server.in.ngrok.io"
+
 
     # Configuration for the application, engines, and railties goes here.
     #

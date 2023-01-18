@@ -6,6 +6,7 @@
 #  bill_amount    :decimal(10, 2)   default(0.0), not null
 #  bill_status    :integer          default("incomplete"), not null
 #  payment_status :integer          default("unpaid"), not null
+#  remarks        :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  project_id     :integer          not null

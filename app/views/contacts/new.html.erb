@@ -1,9 +1,11 @@
+<div>
+  <%= link_to "↶ Back to list", contacts_path, class: 'btn btn-secondary mb-4' %>
+</div>
 <h3>Add New contact</h3>
 
-<%= render "form", contact: @contact %>
-
+<div class="col-md-8 col-sm-12">
+  <%= render "form", contact: @contact %>
+</div>
 <br>
 
-<div>
-  <%= link_to "Back to contacts", contacts_path %>
-</div>
+

@@ -6,7 +6,10 @@ class CreateProjects < ActiveRecord::Migration[7.0]
       t.datetime :start_date, null: false
       t.datetime :deadline
       t.integer :status, default: 0
+      t.integer :bill_status, default: 0
       t.string :manager_name
+      t.string :consultant_name
+      t.text :remarks
       t.decimal :contract_amount, default: 0, precision: 10, scale: 2
       t.references :client, null: false, foreign_key: true
 

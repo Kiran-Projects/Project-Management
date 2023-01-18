@@ -11,30 +11,34 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+  <table class="table table-dark table-borderless">
+    <tr>
+      <td><%= form.label :name, class: 'form-label' %></td>
+      <td><%= form.text_field :name, placeholder: :name, class: 'form-control' %></td>
+    </tr>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    <tr>
+      <td><%= form.label :title, class: 'form-label' %></td>
+      <td><%= form.text_field :title, placeholder: :title_or_designation, class: 'form-control' %></td>
+    </tr>
 
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
+    <tr>
+      <td><%= form.label :phone, class: 'form-label' %></td>
+      <td><%= form.text_field :phone, placeholder: :phone, class: 'form-control' %>
+        <i class="text-secondary">* Separate numbers by comma if multiple</i>
+      </td>
+    </tr>
 
-  <div>
-    <%= form.label :contact_type, style: "display: block" %>
-    <%= form.select :contact_type, contact_types, {prompt: 'Choose Contact Type'}, {class: 'form-select'} %>
-  </div>
+    <tr>
+      <td><%= form.label :contact_type, class: 'form-label' %></td>
+      <td><%= form.select :contact_type, contact_types, {prompt: 'Choose Contact Type'}, {class: 'form-select'} %></td>
+    </tr>
 
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.select :client_id, client_list, {prompt: 'Choose Client'}, {class: 'form-select'} %>
-  </div>
+    <tr>
+      <td><%= form.label :client_id, class: 'form-label' %></td>
+      <td><%= form.select :client_id, client_list, {prompt: 'Choose Client'}, {class: 'form-select'} %></td>
+    </tr>
+  </table>
 
   <div class="mt-4">
     <%= form.submit class: 'btn btn-success' %>

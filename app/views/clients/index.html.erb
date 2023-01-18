@@ -5,10 +5,12 @@
   <%= link_to "New client", new_client_path, class: 'btn btn-success my-2' %>
 </div>
 
-<div id="clients" class="mt-4">
+<div id="clients" class="row mt-4">
   <% @clients.each do |client| %>
-    <%= link_to client, class: 'btn btn-light col-12 text-start my-1' do %>
-      <%= client.name %>
-    <% end %>
+    <div class="col-sm-12 col-md-6 p-2">
+      <%= link_to client, class: 'btn btn-light col-12 text-start' do %>
+        <%= client.name %>
+      <% end %>
+    </div>
   <% end %>
 </div>

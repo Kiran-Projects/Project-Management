@@ -21,10 +21,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_160434) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "title"
-    t.string "phone"
-    t.integer "contact_type"
+    t.string "phone", null: false
+    t.integer "contact_type", default: 0, null: false
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_160434) do
     t.decimal "bill_amount", precision: 10, scale: 2, default: "0.0", null: false
     t.integer "project_id", null: false
     t.integer "work_party_id", null: false
+    t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_project_work_parties_on_project_id"
@@ -49,7 +50,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_160434) do
     t.datetime "start_date", null: false
     t.datetime "deadline"
     t.integer "status", default: 0
+    t.integer "bill_status", default: 0
     t.string "manager_name"
+    t.string "consultant_name"
+    t.text "remarks"
     t.decimal "contract_amount", precision: 10, scale: 2, default: "0.0"
     t.integer "client_id", null: false
     t.datetime "created_at", null: false

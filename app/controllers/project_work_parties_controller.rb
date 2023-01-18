@@ -13,7 +13,7 @@ class ProjectWorkPartiesController < ApplicationController
 
   def project_work_party_params
     params.require(:project_work_party).permit(
-      :bill_amount, :bill_status, :payment_status, :project_id, :work_party_id
+      :bill_amount, :bill_status, :payment_status, :project_id, :work_party_id, :remarks
     )
   end
 end

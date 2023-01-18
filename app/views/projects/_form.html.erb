@@ -12,7 +12,8 @@
   <% end %>
 
   <%= form.hidden_field :name, value: @project&.name || 'New Project', class: 'form-control' %>
-  <table class="table table-light table-borderless">
+  <table class="table table-dark
+   table-borderless">
     <colgroup>
       <col style="width: 20%">
       <col style="width: auto">
@@ -20,12 +21,12 @@
 
     <tr>
       <td><%= form.label :location, class: 'form-label' %></td>
-      <td><%= form.text_field :location, class: 'form-control' %></td>
+      <td><%= form.text_field :location, class: 'form-control', placeholder: :location %></td>
     </tr>
 
     <tr>
       <td><%= form.label :client_id, class: "form-label" %></td>
-      <td><%= form.select :client_id, client_list, { prompt: 'Choose Client'}, { class: 'form-select' } %></td>
+      <td><%= form.select :client_id, client_list, {prompt: 'Choose Client'}, {class: 'form-select'} %></td>
     </tr>
 
     <tr>
@@ -39,18 +40,33 @@
     </tr>
 
     <tr>
-      <td><%= form.label :status, class: 'form-label' %></td>
-      <td><%= form.select :status, project_statuses, {}, { class: 'form-select' } %></td>
+      <td><%= form.label :manager_name, class: 'form-label' %></td>
+      <td><%= form.text_field :manager_name, class: 'form-control', placeholder: :manager_name %></td>
     </tr>
 
     <tr>
-      <td><%= form.label :manager_name, class: 'form-label' %></td>
-      <td><%= form.text_field :manager_name, class: 'form-control' %></td>
+      <td><%= form.label :status, class: 'form-label' %></td>
+      <td><%= form.select :status, project_statuses, {}, {class: 'form-select'} %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :bill_status, class: 'form-label' %></td>
+      <td><%= form.select :bill_status, project_bill_statuses, {}, {class: 'form-select'} %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :consultant_name, class: 'form-label' %></td>
+      <td><%= form.text_field :consultant_name, class: 'form-control', placeholder: :consultant_name %></td>
     </tr>
 
     <tr>
       <td><%= form.label :contract_amount, class: 'form-label' %></td>
-      <td><%= form.number_field :contract_amount, class: 'form-control' %></td>
+      <td><%= form.number_field :contract_amount, class: 'form-control', placeholder: :contract_amount %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :remarks, class: 'form-label' %></td>
+      <td><%= form.text_area :remarks, class: 'form-control', placeholder: :remarks %></td>
     </tr>
   </table>
 

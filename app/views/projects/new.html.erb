@@ -1,7 +1,9 @@
 <div>
-  <%= link_to "↶ Back", projects_path, class: 'btn btn-secondary mb-4' %>
+  <%= link_to "↶ Back to list", projects_path, class: 'btn btn-secondary mb-4' %>
 </div>
 <h3>Add New Project</h3>
 
-<%= render "form", project: @project %>
+<div class="col-md-8 col-sm-12">
+  <%= render "form", project: @project %>
+</div>
 <br>
