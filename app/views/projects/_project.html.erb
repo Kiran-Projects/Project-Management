@@ -96,12 +96,12 @@
             <thead>
             <tr>
               <th>Work Type</th>
-              <th>Work Party</th>
+              <th  style="width: 20%">Work Party</th>
               <th>Bill Amount</th>
               <th>Bill Status</th>
-              <th>Payment Status</th>
-              <th>Remarks</th>
-              <th class="actions-header" style="display: none;">Actions</th>
+              <th>Payment</th>
+              <th style="width: 20%">Remarks</th>
+              <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -113,12 +113,13 @@
                 <td><%= pwp.bill_status %></td>
                 <td><%= pwp.payment_status %></td>
                 <td><%= pwp.remarks || 'N/A' %></td>
-                <td class="actions d-flex" style="display: none;">
+                <td class="d-flex">
                   <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#assignWorkParty<%= pwp.id %>">
-                    Edit
+                    <i class="bi bi-pen"></i>
                   </button>
-                  <%= button_to "Delete", pwp, method: :delete, class: 'btn btn-danger m-1 actions',
-                                form: {data: {turbo_confirm: 'Are you sure?'}} %>
+                  <%= button_to pwp, method: :delete, class: 'btn btn-danger m-1 actions' do %>
+                    <i class="bi bi-trash-fill"></i>
+                  <% end %>
                 </td>
               </tr>
             <% end %>
@@ -129,6 +130,7 @@
     </div>
   </div>
 </div>
+<br><br>
 
 <script>
     // let editMode = false;
