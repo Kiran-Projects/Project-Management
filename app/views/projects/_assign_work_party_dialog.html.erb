@@ -1,0 +1,44 @@
+<% modal_id = form.object.id || 'New' %>
+<div class="modal fade" id="assignWorkParty<%= modal_id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <%= form.hidden_field :project_id, value: @project.id %>
+    <div class="modal-content  bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Assign Work Party</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-dark table-borderless">
+          <tr>
+            <td><%= form.label :work_party_id, class: 'form-label' %></td>
+            <td><%= form.select :work_party_id, work_party_list, {prompt: 'Choose Work Party'}, {class: 'form-select'} %></td>
+          </tr>
+
+          <tr>
+            <td><%= form.label :bill_amount, class: 'form-label' %></td>
+            <td><%= form.number_field :bill_amount, class: 'form-control' %></td>
+          </tr>
+
+          <tr>
+            <td><%= form.label :bill_status, class: 'form-label' %></td>
+            <td><%= form.select :bill_status, bill_statuses, {}, {class: 'form-select'} %></td>
+          </tr>
+
+          <tr>
+            <td><%= form.label :payment_status, class: 'form-label' %></td>
+            <td><%= form.select :payment_status, payment_statuses, {}, {class: 'form-select'} %></td>
+          </tr>
+
+          <tr>
+            <td><%= form.label :remarks, class: 'form-label' %></td>
+            <td><%= form.text_area :remarks, class: 'form-control' %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= form.submit 'Assign', class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+</div>

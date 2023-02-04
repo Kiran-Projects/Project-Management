@@ -1,23 +1,34 @@
 <p class="text-success"><%= notice %></p>
 
-<h1>Work types</h1>
-<div>
-  <%= link_to "New work type", new_work_type_path, class: 'btn btn-success my-2' %>
+<h3>Work types</h3>
+<div class="d-flex col-md-8 mb-4">
+  <%= link_to "Add work type", new_work_type_path, class: 'btn btn-success' %>
+  <%= link_to "Add work party", new_work_party_path, class: 'btn btn-primary ms-auto' %>
 </div>
 
-<div id="work_types" class="row mt-4">
-  <% @work_types.each_with_index do |work_type, index| %>
-    <div class="btn btn-light py-1 text-start d-flex col-sm-12 col-md-8 my-2">
-      <span class="col-10 align-middle pt-1">
-        <%= index + 1 %>. <%= work_type.name %>
-      </span>
-      <%= link_to edit_work_type_path(work_type), class: 'btn btn-primary me-1 col-auto' do %>
-        <i class="bi bi-pen"></i>
-      <% end %>
-      <%= button_to work_type, method: :delete, class: 'btn btn-danger ms-1' do %>
-        <i class="bi bi-trash-fill"></i>
-      <% end %>
+<div class="accordion col-md-8" id="accordionWorkTypes">
+  <% @work_types.each_with_index do |work_type| %>
+    <div class="accordion-item my-2">
+      <h2 class="accordion-header" id="heading<%=work_type.id%>">
+        <button class="accordion-button text-capitalize collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=work_type.id%>" aria-expanded="false" aria-controls="collapse<%=work_type.id%>">
+          <%= work_type.name %>
+        </button>
+      </h2>
+      <div id="collapse<%=work_type.id%>" class="accordion-collapse collapse" aria-labelledby="heading<%=work_type.id%>" data-bs-parent="#accordionWorkTypes">
+        <div class="accordion-body bg-dark">
+          <!-- Action Buttons -->
+          <div class="d-flex mb-2">
+            <%= link_to edit_work_type_path(work_type), class: 'btn btn-primary ms-auto me-2 col-auto' do %>
+              <i class="bi bi-pen"></i>
+            <% end %>
+            <%= button_to work_type, method: :delete, class: 'btn btn-danger' do %>
+              <i class="bi bi-trash-fill"></i>
+            <% end %>
+          </div>
+          <!-- /Action Buttons -->
+          <%= render 'work_parties/work_parties_list', work_parties: work_type.work_parties %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
-

@@ -1,0 +1,11 @@
+<% if work_parties.exists? %>
+  <div id="work_parties" class="text-capitalize list-group">
+    <% work_parties.each do |work_party| %>
+      <%= link_to work_party.name, work_party, class: 'text-decoration-none list-group-item list-group-item-action list-group-item-secondary' %>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-center text-secondary m-4">
+    No any work parties!
+  </p>
+<% end %>

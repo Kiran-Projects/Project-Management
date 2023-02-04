@@ -1,10 +1,9 @@
-<h1>Editing work party</h1>
+<div class="col-md-8">
+  <div>
+    <%= link_to "↶ Back to list", work_types_path, class: 'btn btn-secondary mb-4' %>
+  </div>
 
-<%= render "form", work_party: @work_party %>
+  <h3>Editing work party</h3>
 
-<br>
-
-<div>
-  <%= link_to "Show this work party", @work_party %> |
-  <%= link_to "Back to work parties", work_parties_path %>
+  <%= render "form", work_party: @work_party %>
 </div>

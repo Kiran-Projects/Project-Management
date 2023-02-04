@@ -5,16 +5,4 @@
 </div>
 <h3>Work parties</h3>
 
-<% if @work_parties.exists? %>
-  <div id="work_parties" class="row mt-4">
-    <% @work_parties.each do |work_party| %>
-      <%= link_to work_party, class: "btn btn-light text-start col-md-5 my-2 me-auto" do %>
-        <%= work_party.name %>
-      <% end %>
-    <% end %>
-  </div>
-<% else %>
-  <p class="text-center text-secondary m-4">
-    No any work parties!
-  </p>
-<% end %>
+<%= render 'work_parties/work_parties_list', work_parties: @work_parties %>
