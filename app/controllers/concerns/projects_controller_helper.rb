@@ -1,4 +1,4 @@
-module ProjectHelper
+module ProjectsControllerHelper
 
   def sorted_work_parties
     sort_params = params[:sort]&.to_sym || :work_party_name

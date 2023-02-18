@@ -4,7 +4,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
-  include ProjectHelper
+  include ProjectsControllerHelper
 
   # GET /projects or /projects.json
   def index

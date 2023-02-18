@@ -30,4 +30,13 @@ module ProjectsHelper
       'success'
     end
   end
+
+  def sort_arrow(sort_by)
+    arrow_type = session[:order] == 'desc' ? 'up' : 'down'
+    if params[:sort] == sort_by
+      "<i class='bi bi-arrow-#{arrow_type}'></i>".html_safe
+    else
+      ''
+    end
+  end
 end
