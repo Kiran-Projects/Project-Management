@@ -2,7 +2,5 @@
 
 # app/controllers/home_controller
 class HomeController < ApplicationController
-  def index
-    render
-  end
+  def index; end
 end

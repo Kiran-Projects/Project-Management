@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# app/controllers/work_parties_controller
 class WorkPartiesController < ApplicationController
-  before_action :set_work_party, only: %i[ show edit update destroy ]
+  before_action :set_work_party, only: %i[show edit update destroy]
 
   # GET /work_parties or /work_parties.json
   def index
@@ -7,8 +10,7 @@ class WorkPartiesController < ApplicationController
   end
 
   # GET /work_parties/1 or /work_parties/1.json
-  def show
-  end
+  def show; end
 
   # GET /work_parties/new
   def new
@@ -16,8 +18,7 @@ class WorkPartiesController < ApplicationController
   end
 
   # GET /work_parties/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /work_parties or /work_parties.json
   def create
@@ -25,7 +26,7 @@ class WorkPartiesController < ApplicationController
 
     respond_to do |format|
       if @work_party.save
-        format.html { redirect_to work_party_url(@work_party), notice: "Work party was successfully created." }
+        format.html { redirect_to work_party_url(@work_party), notice: 'Work party was successfully created.' }
         format.json { render :show, status: :created, location: @work_party }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class WorkPartiesController < ApplicationController
   def update
     respond_to do |format|
       if @work_party.update(work_party_params)
-        format.html { redirect_to work_party_url(@work_party), notice: "Work party was successfully updated." }
+        format.html { redirect_to work_party_url(@work_party), notice: 'Work party was successfully updated.' }
         format.json { render :show, status: :ok, location: @work_party }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +53,20 @@ class WorkPartiesController < ApplicationController
     @work_party.destroy
 
     respond_to do |format|
-      format.html { redirect_to work_parties_url, notice: "Work party was successfully destroyed." }
+      format.html { redirect_to work_parties_url, notice: 'Work party was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_work_party
-      @work_party = WorkParty.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def work_party_params
-      params.require(:work_party).permit(:name, :work_type_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_work_party
+    @work_party = WorkParty.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def work_party_params
+    params.require(:work_party).permit(:name, :work_type_id)
+  end
 end

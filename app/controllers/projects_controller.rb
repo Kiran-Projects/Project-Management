@@ -4,13 +4,18 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
+  include ProjectHelper
+
   # GET /projects or /projects.json
   def index
     @projects = Project.all
   end
 
   # GET /projects/1 or /projects/1.json
-  def show; end
+  def show
+    session[:order] = request.url == request.referer && session[:order] == 'asc' ? 'desc' : 'asc'
+    @project_work_parties = sorted_work_parties
+  end
 
   # GET /projects/new
   def new
@@ -68,8 +73,8 @@ class ProjectsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def project_params
     params.require(:project).permit(
-      :name, :location, :client_id, :start_date, :deadline, :status,
-      :manager_name, :contract_amount, :consultant_name, :bill_status, :remarks
+        :name, :location, :client_id, :start_date, :deadline, :status,
+        :manager_name, :contract_amount, :consultant_name, :bill_status, :remarks
     )
   end
 end
